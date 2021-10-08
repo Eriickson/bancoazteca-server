@@ -1,17 +1,18 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "out/index.js",
   "license": "MIT",
   "engines": {
-    "node": "14.x"
+    "node": "14.15.0",
+    "npm": "6.14.8"
   },
   "scripts": {
     "build": "tsc --build",
     "dev": "nodemon ./src/index.ts",
     "format": "prettier --write src/**/*.ts{,x} pages/**/*.ts{,x}",
     "eslint": "tsc --noEmit && eslint src/**/*.ts{,x} pages/**/*.ts{,x}",
-    "start": "node ./out/index.js"
+    "start": "node out/index.js"
   },
   "devDependencies": {
     "@types/array-sort": "^1.0.0",
