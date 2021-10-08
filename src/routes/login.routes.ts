@@ -1,11 +1,10 @@
 import express from 'express';
-import { constrollers } from '../controllers';
-import { body } from 'express-validator';
+import { controllers } from '../controllers';
 
 export class LoginRoutes {
   public route() {
     const router = express.Router();
-    router.post('/register', constrollers.login.register);
+    router.post('/register', controllers.login.register);
 
     return router;
   }

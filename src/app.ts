@@ -4,13 +4,14 @@ import cors from 'cors';
 import { envs, startMongoose } from './configs';
 import { LoginRoutes } from './routes';
 import { authenticateToken } from './middleware';
+import { ProductRoutes } from './routes/product.routes';
 
 export class App {
   public app: express.Application;
 
   private port: number;
 
-  private loginRoutes = new LoginRoutes().route();
+  private products = new ProductRoutes();
 
   constructor() {
     this.app = express();
@@ -27,7 +28,7 @@ export class App {
   }
 
   private configRoutes() {
-    this.app.use('/login', this.loginRoutes);
+    this.app.use('/product', this.products.route());
   }
 
   public listen() {
