@@ -1,1 +1,1 @@
-web: node out/index.js
+web:node out/index.js
