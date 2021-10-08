@@ -2,9 +2,8 @@ require('dotenv').config({});
 import express from 'express';
 import cors from 'cors';
 import { envs, startMongoose } from './configs';
-import { LoginRoutes } from './routes';
 import { authenticateToken } from './middleware';
-import { ProductRoutes } from './routes/product.routes';
+import { DeadlineRoutes, ProductRoutes } from './routes';
 
 export class App {
   public app: express.Application;
@@ -12,6 +11,7 @@ export class App {
   private port: number;
 
   private products = new ProductRoutes();
+  private deadlines = new DeadlineRoutes();
 
   constructor() {
     this.app = express();
@@ -29,6 +29,7 @@ export class App {
 
   private configRoutes() {
     this.app.use('/product', this.products.route());
+    this.app.use('/deadline', this.deadlines.route());
   }
 
   public listen() {

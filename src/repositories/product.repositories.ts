@@ -1,11 +1,12 @@
 import { Product } from '../types';
 import { ProductModel } from '../models';
+import arraySort from 'array-sort';
 
 export class ProductRepository {
   async getProducts(): Promise<Product[]> {
     try {
       const productsFound = await ProductModel.find();
-      return productsFound;
+      return arraySort(productsFound, 'name');
     } catch (err: any) {
       throw new Error(err);
     }
