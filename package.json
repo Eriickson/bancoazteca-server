@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "tsc --build",
     "dev": "nodemon ./src/index.ts",
     "format": "prettier --write src/**/*.ts{,x} pages/**/*.ts{,x}",
     "eslint": "tsc --noEmit && eslint src/**/*.ts{,x} pages/**/*.ts{,x}"

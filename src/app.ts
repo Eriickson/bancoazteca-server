@@ -2,7 +2,6 @@ require('dotenv').config({});
 import express from 'express';
 import cors from 'cors';
 import { envs, startMongoose } from './configs';
-import { authenticateToken } from './middleware';
 import { DeadlineRoutes, ProductRoutes } from './routes';
 
 export class App {
