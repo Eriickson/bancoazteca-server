@@ -1,19 +1,16 @@
 import express from 'express';
 import cors from 'cors';
-import { envs, startMongoose } from './configs';
+import { startMongoose } from './configs';
 import { DeadlineRoutes, ProductRoutes } from './routes';
 
 export class App {
   public app: express.Application;
-
-  private port: number;
 
   private products = new ProductRoutes();
   private deadlines = new DeadlineRoutes();
 
   constructor() {
     this.app = express();
-    this.port = envs.PORT;
     this.config();
     this.configRoutes();
   }
@@ -22,7 +19,7 @@ export class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cors());
-    startMongoose(envs.URI_MONGODB);
+    startMongoose(String(process.env.URI_MONGODB));
   }
 
   private configRoutes() {
@@ -32,8 +29,8 @@ export class App {
   }
 
   public listen(): void {
-    this.app.listen(envs.PORT, () => {
-      console.log(`Listening on http://localhost:${this.port}`);
+    this.app.listen(process.env.PORT, () => {
+      console.log(`Listening on http://localhost:${process.env.PORT}`);
     });
   }
 }
