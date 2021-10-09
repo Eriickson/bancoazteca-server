@@ -8,6 +8,7 @@ export class App {
 
   private products = new ProductRoutes();
   private deadlines = new DeadlineRoutes();
+  port = process.env.PORT || 9000;
 
   constructor() {
     this.app = express();
@@ -29,8 +30,8 @@ export class App {
   }
 
   public listen(): void {
-    this.app.listen(process.env.PORT, () => {
-      console.log(`Listening on http://localhost:${process.env.PORT}`);
+    this.app.listen(this.port, () => {
+      console.log(`Listening on http://localhost:${this.port}`);
     });
   }
 }
