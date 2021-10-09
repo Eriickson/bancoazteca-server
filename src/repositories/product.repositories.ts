@@ -7,8 +7,9 @@ export class ProductRepository {
     try {
       const productsFound = await ProductModel.find();
       return arraySort(productsFound, 'name');
-    } catch (err: any) {
-      throw new Error(err);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 
@@ -16,8 +17,9 @@ export class ProductRepository {
     try {
       const newProduct = new ProductModel(product);
       return newProduct.save();
-    } catch (err: any) {
-      throw new Error(err);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 
@@ -31,8 +33,9 @@ export class ProductRepository {
       }
 
       return response;
-    } catch (err: any) {
-      throw new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 
@@ -44,8 +47,9 @@ export class ProductRepository {
       }
 
       return true;
-    } catch (err: any) {
-      throw new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 }

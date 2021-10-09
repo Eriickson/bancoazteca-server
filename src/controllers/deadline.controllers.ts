@@ -5,12 +5,11 @@ import { Deadline } from '../types';
 const repository: DeadlineRepository = new DeadlineRepository();
 
 export class DeadlineController {
-  // async getDeadline() {}
-  async getDeadlines(_: Request, res: Response) {
+  async getDeadlines(_: Request, res: Response): Promise<void> {
     const deadlinesFound = await repository.getDeadlines();
     res.json(deadlinesFound);
   }
-  async createDeadline(req: Request, res: Response) {
+  async createDeadline(req: Request, res: Response): Promise<void> {
     const { weeks, punctualRate, normalRate } = req.body;
 
     try {
@@ -20,11 +19,12 @@ export class DeadlineController {
         normalRate,
       });
       res.json(deadlineCreated);
-    } catch (err: any) {
-      return new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
-  async updateDeadline(req: Request, res: Response) {
+  async updateDeadline(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
 
     const deadline: Deadline = req.body;
@@ -33,7 +33,7 @@ export class DeadlineController {
 
     res.json(deadlineUpdated);
   }
-  async deleteDeadline(req: Request, res: Response) {
+  async deleteDeadline(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     await repository.deleteDeadline(id);
 

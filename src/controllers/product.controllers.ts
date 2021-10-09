@@ -5,12 +5,11 @@ import { Product } from '../types';
 const repository: ProductRepository = new ProductRepository();
 
 export class ProductController {
-  // async getProduct() {}
-  async getProducts(_: Request, res: Response) {
+  async getProducts(_: Request, res: Response): Promise<void> {
     const productsFound = await repository.getProducts();
     res.json(productsFound);
   }
-  async createProduct(req: Request, res: Response) {
+  async createProduct(req: Request, res: Response): Promise<void> {
     const {
       sku,
       name,
@@ -35,11 +34,12 @@ export class ProductController {
       });
 
       res.json(productCreated);
-    } catch (err: any) {
-      return new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
-  async updateProduct(req: Request, res: Response) {
+  async updateProduct(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
 
     const product: Product = req.body;
@@ -48,7 +48,7 @@ export class ProductController {
 
     res.json(productUpdated);
   }
-  async deleteProduct(req: Request, res: Response) {
+  async deleteProduct(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     await repository.deleteProduct(id);
 

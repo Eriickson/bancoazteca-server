@@ -7,8 +7,10 @@ export class DeadlineRepository {
     try {
       const productsFound = await DeadlineModel.find();
       return arraySort(productsFound, 'weeks');
-    } catch (err: any) {
-      throw new Error(err);
+    } catch (err) {
+      const message = (err as Error).message;
+
+      throw new Error(message);
     }
   }
 
@@ -16,8 +18,9 @@ export class DeadlineRepository {
     try {
       const newDeadline = new DeadlineModel(product);
       return newDeadline.save();
-    } catch (err: any) {
-      throw new Error(err);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 
@@ -31,8 +34,9 @@ export class DeadlineRepository {
       }
 
       return response;
-    } catch (err: any) {
-      throw new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 
@@ -44,8 +48,9 @@ export class DeadlineRepository {
       }
 
       return true;
-    } catch (err: any) {
-      throw new Error(err.message);
+    } catch (err) {
+      const message = (err as Error).message;
+      throw new Error(message);
     }
   }
 }

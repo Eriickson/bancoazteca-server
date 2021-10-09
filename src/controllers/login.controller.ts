@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
 import { hashSync, genSaltSync } from 'bcryptjs';
-import * as yup from 'yup';
 
 export class LoginController {
-  async register(req: Request, res: Response) {
+  async register(req: Request, res: Response): Promise<void> {
     const { name, lastname, birthday, email, password } = req.body;
 
     const salt = genSaltSync(12);
