@@ -3,12 +3,7 @@ mongoose.Promise = global.Promise;
 
 export function startMongoose(uri: string): void {
   mongoose
-    .connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    })
+    .connect(uri, {})
     .then(() => {
       console.log('Conectada');
     })
