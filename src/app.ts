@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { startMongoose } from './configs';
+import { startMongoose } from './db';
 import { DeadlineRoutes, ProductRoutes } from './routes';
 
 export class App {
