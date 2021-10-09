@@ -5,7 +5,7 @@ import { Product } from '../types';
 const repository: ProductRepository = new ProductRepository();
 
 export class ProductController {
-  async getProduct() {}
+  // async getProduct() {}
   async getProducts(_: Request, res: Response) {
     const productsFound = await repository.getProducts();
     res.json(productsFound);

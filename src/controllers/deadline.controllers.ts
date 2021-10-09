@@ -5,7 +5,7 @@ import { Deadline } from '../types';
 const repository: DeadlineRepository = new DeadlineRepository();
 
 export class DeadlineController {
-  async getDeadline() {}
+  // async getDeadline() {}
   async getDeadlines(_: Request, res: Response) {
     const deadlinesFound = await repository.getDeadlines();
     res.json(deadlinesFound);

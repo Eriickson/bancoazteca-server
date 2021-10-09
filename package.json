@@ -11,7 +11,7 @@
     "build": "tsc --build",
     "dev": "nodemon ./src/index.ts",
     "format": "prettier --write src/**/*.ts{,x} pages/**/*.ts{,x}",
-    "eslint": "tsc --noEmit && eslint src/**/*.ts{,x} pages/**/*.ts{,x}",
+    "eslint": "tsc --noEmit && eslint src/**/*.ts{,x}",
     "start": "tsc --build && node out/index.js"
   },
   "devDependencies": {
@@ -21,6 +21,9 @@
     "@types/jsonwebtoken": "^8.5.1",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.13",
     "ts-node": "^10.0.0",
@@ -32,7 +35,6 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "eslint": "^7.32.0",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "nodemon": "^2.0.7",

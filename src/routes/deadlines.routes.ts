@@ -6,7 +6,7 @@ export class DeadlineRoutes {
   public route() {
     const router = express.Router();
     router.get('/', this.controllers.getDeadlines);
-    router.get('/:id', this.controllers.getDeadline);
+    // router.get('/:id', this.controllers.getDeadline);
     router.post('/', this.controllers.createDeadline);
     router.put('/:id', this.controllers.updateDeadline);
     router.delete('/:id', this.controllers.deleteDeadline);

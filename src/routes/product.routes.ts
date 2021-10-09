@@ -5,7 +5,7 @@ export class ProductRoutes {
   controllers = new ProductController();
   public route() {
     const router = express.Router();
-    router.get('/:id', this.controllers.getProduct);
+    // router.get('/:id', this.controllers.getProduct);
     router.get('/', this.controllers.getProducts);
     router.post('/', this.controllers.createProduct);
     router.put('/:id', this.controllers.updateProduct);

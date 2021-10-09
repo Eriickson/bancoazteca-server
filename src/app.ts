@@ -1,4 +1,3 @@
-require('dotenv').config({});
 import express from 'express';
 import cors from 'cors';
 import { envs, startMongoose } from './configs';
@@ -32,7 +31,7 @@ export class App {
     this.app.use('/deadline', this.deadlines.route());
   }
 
-  public listen() {
+  public listen(): void {
     this.app.listen(envs.PORT, () => {
       console.log(`Listening on http://localhost:${this.port}`);
     });
