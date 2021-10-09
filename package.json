@@ -12,7 +12,7 @@
     "dev": "nodemon ./src/index.ts",
     "format": "prettier --write src/**/*.ts{,x} pages/**/*.ts{,x}",
     "eslint": "tsc --noEmit && eslint src/**/*.ts{,x} pages/**/*.ts{,x}",
-    "start": "node out/index.js"
+    "start": "nodemon ./src/index.ts"
   },
   "devDependencies": {
     "@types/array-sort": "^1.0.0",
