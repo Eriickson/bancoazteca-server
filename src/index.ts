@@ -1,3 +1,7 @@
 import { App } from './app';
 
-new App().listen();
+const app = new App();
+
+(() => {
+  app.listen();
+})();
