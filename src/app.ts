@@ -27,6 +27,7 @@ export class App {
   }
 
   private configRoutes() {
+    this.app.get('/', (req, res) => res.send('Recibido'));
     this.app.use('/product', this.products.route());
     this.app.use('/deadline', this.deadlines.route());
   }
